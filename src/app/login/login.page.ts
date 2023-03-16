@@ -15,20 +15,16 @@ export class LoginPage implements OnInit {
 
     ngOnInit() {
     }
-    Login() {
-
-        // this.http.post("http://localhost/savingAppApi/login.php", JSON.stringify({}), { responseType: 'text' }).subscribe(res => {
-        //     alert(res);
-        // });
-        this.session.Ajax("http://localhost/savingAppApi/login.php", {}).subscribe(res => {
-            alert(res)
+    async Login() {
+        let res: any = await this.session.Ajax("http://localhost/savingAppApi/login.php", {
+            username: this.username,
+            password: this.password
         });
-
-        if (this.username == "admin" && this.password == "12345") {
-            this.session.LinkTo("home")
+        if (res.status == "ok") {
+            this.session.auth = res.data;
+            this.session.LinkTo("home");
         } else {
-            alert("ไม่ผ่าน");
+            this.session.ShowAlert("คุณใส่รหัสผ่านผิด");
         }
     }
-
 }
