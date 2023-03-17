@@ -22,9 +22,14 @@ export class LoginPage implements OnInit {
         });
         if (res.status == "ok") {
             this.session.auth = res.data;
+            this.session.SetStorage("auth", res.data);
             this.session.LinkTo("home");
         } else {
             this.session.ShowAlert("คุณใส่รหัสผ่านผิด");
         }
+    }
+    Clear() {
+        this.username = "";
+        this.password = "";
     }
 }

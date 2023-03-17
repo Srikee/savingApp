@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { timeout } from 'rxjs';
+import { Storage } from '@ionic/storage-angular';
 
 @Injectable({
     providedIn: 'root'
@@ -14,6 +15,7 @@ export class SessionService {
         private http: HttpClient,
         private alertCtrl: AlertController,
         private loadingCtrl: LoadingController,
+        private storage: Storage
     ) { }
 
     async Ajax(url: any, data: any, isloading = true, isJson = true) {
@@ -50,8 +52,13 @@ export class SessionService {
             }, 0);
         });
     }
-    LinkTo(page: any) {
-        this.router.navigateByUrl(page);
+    LinkTo(page: any, type = true) {
+        // this.router.navigateByUrl(page);
+        if (type == false) {
+            this.router.navigateByUrl(page, { replaceUrl: true }); // ไม่จำประวัติหน้าก่อนหน้า
+        } else {
+            this.router.navigateByUrl(page);  // จำประวัติหน้าก่อนหน้า
+        }
     }
     ShowAlert(message: any) {
         let msg: any = message;
@@ -103,5 +110,13 @@ export class SessionService {
         });
 
     }
-
+    SetStorage(key: any, val: any) {
+        return this.storage.set(key, val);
+    }
+    GetStorage(key: any) {
+        return this.storage.get(key);
+    }
+    RemoveStorage(key: any) {
+        return this.storage.remove(key);
+    }
 }

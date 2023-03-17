@@ -14,9 +14,22 @@ export class HomePage {
         private session: SessionService
     ) {
         this.auth = this.session.auth;
+
+
+        this.Init();
+
     }
-    Logout() {
-        this.session.LinkTo("login");
+    async Init() {
+        // let staff_name = await this.session.GetStorage("staff_name");
+        // alert(staff_name);
+    }
+    async Logout() {
+
+        let st = await this.session.ShowConfirm("คุณต้องการออกจากระบบใช่หรือไม่ ?")
+        if (st == true) {
+            this.session.RemoveStorage("auth");
+            this.session.LinkTo("login");
+        }
     }
     Test1() {
         //alert("ทดสอบนะจ่ะ");
