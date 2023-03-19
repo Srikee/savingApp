@@ -16,7 +16,7 @@ export class LoginPage implements OnInit {
     ngOnInit() {
     }
     async Login() {
-        let res: any = await this.session.Ajax("http://localhost/savingAppApi/login.php", {
+        let res: any = await this.session.Ajax(this.session.api + "/login.php", {
             username: this.username,
             password: this.password
         });

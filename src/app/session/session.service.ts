@@ -9,7 +9,8 @@ import { Storage } from '@ionic/storage-angular';
     providedIn: 'root'
 })
 export class SessionService {
-    auth: any;
+    api = "http://localhost/savingAppApi";  // ตำแหน่งที่ตั้งของ api
+    auth: any;                              // ข้อมูลการล็อกอิน
     constructor(
         private router: Router,
         private http: HttpClient,
@@ -18,8 +19,7 @@ export class SessionService {
         private storage: Storage
     ) { }
 
-    async Ajax(url: any, data: any, isloading = true, isJson = true) {
-        // return this.http.post(url, JSON.stringify(data), { responseType: 'text' });
+    async Ajax(url: any, data: any, isloading = true) {
         let loading: any;
         if (isloading == true) {
             loading = await this.loadingCtrl.create({
@@ -29,22 +29,13 @@ export class SessionService {
         }
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                this.http.post(url, JSON.stringify(data), { responseType: 'text' })
+                this.http.post(url, JSON.stringify(data), { responseType: 'json' })
                     .pipe(
-                        timeout(2000)
+                        timeout(5000)
                     )
                     .subscribe((response: any) => {
                         if (isloading == true) { loading.dismiss(); }
-                        if (isJson) {
-                            try {
-                                var rs = JSON.parse(response);
-                                resolve(rs);
-                            } catch (e) {
-                                reject(response);
-                            }
-                        } else {
-                            resolve(response);
-                        }
+                        resolve(response);
                     }, error => {
                         if (isloading == true) { loading.dismiss(); }
                         reject("Network Fail.");
