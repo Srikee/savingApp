@@ -32,4 +32,7 @@ export class LoginPage implements OnInit {
         this.username = "";
         this.password = "";
     }
+    Register() {
+        this.session.LinkTo("register");
+    }
 }

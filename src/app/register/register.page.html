@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar color="chang">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>ลงทะเบียน</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item>
+            <ion-label>ชื่อ</ion-label>
+            <ion-input [(ngModel)]="staff_name"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>นามสกุล</ion-label>
+            <ion-input [(ngModel)]="staff_lname"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>ชื่อผู้ใช้งาน</ion-label>
+            <ion-input [(ngModel)]="username"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>รหัสผ่าน</ion-label>
+            <ion-input [(ngModel)]="password"></ion-input>
+        </ion-item>
+    </ion-list>
+    <ion-button (click)="Register()">ลงทะเบียน</ion-button>
+</ion-content>
