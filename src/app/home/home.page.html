@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-    <ion-toolbar>
+    <ion-toolbar color="chang">
         <ion-title>
             หน้าแรก
         </ion-title>
@@ -19,7 +19,7 @@
                         </a>
                     </ion-col>
                     <ion-col>
-                        <a class="menu-item">
+                        <a (click)="GoToHistory()" class="menu-item">
                             <ion-icon class="icon" name="time-outline"></ion-icon>
                             <div class="menu-name">ประวัติการสั่งซื้อ</div>
                         </a>

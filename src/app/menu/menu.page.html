@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-toolbar color="chang">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>เลือกอาหาร</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div>
+        <ion-item *ngFor="let d of data">
+            <ion-thumbnail slot="start">
+                <img alt="Silhouette of mountains" src="{{ d.image }}" />
+            </ion-thumbnail>
+            <ion-label>
+                {{ d.pro_name }}
+                <div>
+                    {{ d.price }} บาท
+                </div>
+            </ion-label>
+            <ion-button slot="end" size="large" fill="clear" color="success">
+                <ion-icon slot="icon-only" name="cart"></ion-icon>
+            </ion-button>
+        </ion-item>
+    </div>
+</ion-content>
