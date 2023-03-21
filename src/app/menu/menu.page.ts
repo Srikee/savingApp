@@ -12,7 +12,7 @@ export class MenuPage implements OnInit {
     constructor(
         private session: SessionService
     ) {
-        this.image_part = this.session.image_part;
+
     }
 
     async ngOnInit() {
@@ -20,20 +20,6 @@ export class MenuPage implements OnInit {
         this.data = res.data;
     }
     async Add(item: any) {
-        let items: any = await this.session.GetStorage("items");
-        if (items == null) {
-            items = {};
-            item.orderQty = 1;
-            items[item.pro_id] = item;
-        } else {
-            if (items[item.pro_id] == null) {
-                item.orderQty = 1;
-                items[item.pro_id] = item;
-            } else {
-                items[item.pro_id].orderQty++;
-            }
-        }
-        await this.session.SetStorage("items", items);
-        this.session.ShowAlert("เพิ่มในตะกร้าแล้ว");
+
     }
 }

@@ -11,7 +11,7 @@
     <div>
         <ion-item *ngFor="let item of data">
             <ion-thumbnail slot="start">
-                <img alt="Silhouette of mountains" src="{{ item.image }}" />
+                <img alt="Silhouette of mountains" src="{{ image_part }}{{ item.image }}" />
             </ion-thumbnail>
             <ion-label>
                 {{ item.pro_name }}
