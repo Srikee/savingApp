@@ -44,7 +44,6 @@ export class SessionService {
         });
     }
     LinkTo(page: any, type = true) {
-        // this.router.navigateByUrl(page);
         if (type == false) {
             this.router.navigateByUrl(page, { replaceUrl: true }); // ไม่จำประวัติหน้าก่อนหน้า
         } else {

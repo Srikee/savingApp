@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar color="chang">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>ตะกร้าสินค้า</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div>
+        <div class="no-cart" *ngIf="items.length==0">
+            ไม่มีรายการในตะกร้า
+        </div>
+        <ion-item *ngFor="let item of items">
+            <ion-thumbnail slot="start">
+                <img alt="Silhouette of mountains" src="{{ image_part }}{{ item.image }}" />
+            </ion-thumbnail>
+            <ion-label>
+                {{ item.pro_name }}
+                <div>
+                    {{ item.price }} บาท
+                </div>
+                <div>
+                    จำนวน {{ item.orderQty }} ชิ้น
+                </div>
+            </ion-label>
+            <ion-buttons slot="end">
+                <ion-button size="large" fill="clear" color="danger" (click)="Del(item)">
+                    <ion-icon slot="icon-only" name="remove-circle"></ion-icon>
+                </ion-button>
+                <ion-button size="large" fill="clear" color="success" (click)="Add(item)">
+                    <ion-icon slot="icon-only" name="add-circle"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-item>
+    </div>
+</ion-content>

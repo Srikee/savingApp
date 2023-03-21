@@ -9,17 +9,17 @@
 
 <ion-content>
     <div>
-        <ion-item *ngFor="let d of data">
+        <ion-item *ngFor="let item of data">
             <ion-thumbnail slot="start">
-                <img alt="Silhouette of mountains" src="{{ d.image }}" />
+                <img alt="Silhouette of mountains" src="{{ image_part }}{{ item.image }}" />
             </ion-thumbnail>
             <ion-label>
-                {{ d.pro_name }}
+                {{ item.pro_name }}
                 <div>
-                    {{ d.price }} บาท
+                    {{ item.price }} บาท
                 </div>
             </ion-label>
-            <ion-button slot="end" size="large" fill="clear" color="success">
+            <ion-button slot="end" size="large" fill="clear" color="success" (click)="Add(item)">
                 <ion-icon slot="icon-only" name="cart"></ion-icon>
             </ion-button>
         </ion-item>
