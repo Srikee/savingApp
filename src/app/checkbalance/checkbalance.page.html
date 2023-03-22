@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-toolbar color="chang">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>ตรวจสอบยอดเงิน</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item>
+            <ion-label>เลือกบัญชี</ion-label>
+            <ion-select placeholder="เลือกบัญชี" [(ngModel)]="account_id" (ionChange)="SelectAccount()">
+                <ion-select-option *ngFor="let acccount of acccounts" value="{{ acccount.account_id }}">
+                    {{ acccount.account_name }}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-item *ngIf="account_id!=''">
+            <ion-label>ยอดเงินคงเหลือ</ion-label>
+            <ion-label slot="end">{{ balance }} บาท</ion-label>
+        </ion-item>
+    </ion-list>
+
+    <div *ngIf="account_id!=''">
+        <div class="title">ประวัติการฝากและถอน</div>
+        <ion-list>
+            <ion-item *ngFor="let data of datas">
+                <ion-label>{{ data.list_date }}</ion-label>
+                <ion-label slot="end" [ngClass]="data.list_type=='1' ? 'green' : 'red'">
+                    <span *ngIf="data.list_type=='1'">+</span>
+                    <span *ngIf="data.list_type=='2'">-</span>
+                    {{ data.amount }}
+                    บาท
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>

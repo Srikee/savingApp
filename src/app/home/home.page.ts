@@ -23,18 +23,16 @@ export class HomePage {
         // let staff_name = await this.session.GetStorage("staff_name");
         // alert(staff_name);
     }
-    async Logout() {
-
-        let st = await this.session.ShowConfirm("คุณต้องการออกจากระบบใช่หรือไม่ ?")
-        if (st == true) {
-            this.session.RemoveStorage("auth");
-            this.session.LinkTo("login");
-        }
-    }
     GoToMenu() {
         this.session.LinkTo("menu");
     }
     GoToHistory() {
         this.session.LinkTo("history");
+    }
+    GoToProfile() {
+        this.session.LinkTo("profile");
+    }
+    GoToCheckbalance() {
+        this.session.LinkTo("checkbalance");
     }
 }
