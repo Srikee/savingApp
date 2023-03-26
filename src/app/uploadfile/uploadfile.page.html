@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar color="chang">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>อัพโหลดไฟล์</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item>
+            <ion-label>Name</ion-label>
+            <ion-input [(ngModel)]="name"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>File</ion-label>
+            <ion-input id="file" type="file" [(ngModel)]="file"></ion-input>
+        </ion-item>
+    </ion-list>
+    <ion-button (click)="Add()">บันทึก</ion-button>
+</ion-content>

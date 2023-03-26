@@ -20,6 +20,14 @@ export class SessionService {
     ) { }
 
     async Ajax(url: any, data: any, isloading = true) {
+        let formData = new FormData();
+        for (const [key, item] of Object.entries(data)) {
+            // this.items.push(item);
+            formData.append(key, item + "");
+        }
+
+
+
         let loading: any;
         if (isloading == true) {
             loading = await this.loadingCtrl.create({
@@ -29,7 +37,8 @@ export class SessionService {
         }
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                this.http.post(url, JSON.stringify(data), { responseType: 'json' })
+                // this.http.post(url, JSON.stringify(data), { responseType: 'json' })
+                this.http.post(url, formData, { responseType: 'json' })
                     .pipe(
                         timeout(5000)
                     )

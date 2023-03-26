@@ -35,4 +35,7 @@ export class HomePage {
     GoToCheckbalance() {
         this.session.LinkTo("checkbalance");
     }
+    GoToUploadfile() {
+        this.session.LinkTo("uploadfile");
+    }
 }

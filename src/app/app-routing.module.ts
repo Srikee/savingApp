@@ -34,6 +34,10 @@ const routes: Routes = [
     path: 'checkbalance',
     loadChildren: () => import('./checkbalance/checkbalance.module').then( m => m.CheckbalancePageModule)
   },
+  {
+    path: 'uploadfile',
+    loadChildren: () => import('./uploadfile/uploadfile.module').then( m => m.UploadfilePageModule)
+  },
 
 
 ];
