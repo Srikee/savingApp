@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>รายละเอียดบัญชี</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <table class="my-table">
+        <tr>
+            <td>เลขที่บัญชี</td>
+            <td>{{ account_id }}</td>
+        </tr>
+        <tr>
+            <td>ชื่อบัญชี</td>
+            <td>{{ data.account_name }}</td>
+        </tr>
+        <tr>
+            <td>วันที่เปิดบัญชี</td>
+            <td>{{ data.account_date }}</td>
+        </tr>
+        <tr>
+            <td>ยอดเงินในบัญชี</td>
+            <td>{{ data.balance }} บาท</td>
+        </tr>
+    </table>
+</ion-content>

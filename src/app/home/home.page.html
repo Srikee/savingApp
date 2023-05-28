@@ -36,7 +36,7 @@
                         </a>
                     </ion-col>
                     <ion-col>
-                        <a class="menu-item">
+                        <a class="menu-item" (click)="GoToAccount()">
                             <ion-icon class="icon" name="cart-outline"></ion-icon>
                             <div class="menu-name">ข้อมูลสมุดบัญชี</div>
                         </a>
@@ -50,7 +50,10 @@
                         </a>
                     </ion-col>
                     <ion-col>
-
+                        <a class="menu-item" (click)="GoToTest()">
+                            <ion-icon class="icon" name="cart-outline"></ion-icon>
+                            <div class="menu-name">Test</div>
+                        </a>
                     </ion-col>
                 </ion-row>
             </ion-grid>

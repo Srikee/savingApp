@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>ข้อมูลสมุดบัญชี</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-item *ngFor="let data of datas">
+        <ion-label>
+            <h2>{{ data.account_id }}</h2>
+            <p>{{ data.account_name }}</p>
+        </ion-label>
+        <ion-buttons slot="end">
+            <ion-button (click)="GoToAccountDetail(data)">รายละเอียด</ion-button>
+        </ion-buttons>
+    </ion-item>
+
+
+</ion-content>

@@ -10,6 +10,7 @@ import { Storage } from '@ionic/storage-angular';
 })
 export class SessionService {
     api = "http://localhost/savingAppApi";  // ตำแหน่งที่ตั้งของ api
+    //api = "https://dbsaving.000webhostapp.com/savingAppApi";  // ตำแหน่งที่ตั้งของ api
     auth: any;                              // ข้อมูลการล็อกอิน
     constructor(
         private router: Router,

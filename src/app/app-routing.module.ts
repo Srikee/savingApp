@@ -22,22 +22,35 @@ const routes: Routes = [
     {
         path: 'history',
         loadChildren: () => import('./history/history.module').then(m => m.HistoryPageModule)
-    },  {
-    path: 'register',
-    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
-  },
-  {
-    path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
-  },
-  {
-    path: 'checkbalance',
-    loadChildren: () => import('./checkbalance/checkbalance.module').then( m => m.CheckbalancePageModule)
-  },
-  {
-    path: 'uploadfile',
-    loadChildren: () => import('./uploadfile/uploadfile.module').then( m => m.UploadfilePageModule)
-  },
+    },
+    {
+        path: 'register',
+        loadChildren: () => import('./register/register.module').then(m => m.RegisterPageModule)
+    },
+    {
+        path: 'profile',
+        loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule)
+    },
+    {
+        path: 'checkbalance',
+        loadChildren: () => import('./checkbalance/checkbalance.module').then(m => m.CheckbalancePageModule)
+    },
+    {
+        path: 'uploadfile',
+        loadChildren: () => import('./uploadfile/uploadfile.module').then(m => m.UploadfilePageModule)
+    },
+    {
+        path: 'test',
+        loadChildren: () => import('./test/test.module').then(m => m.TestPageModule)
+    },
+    {
+        path: 'account',
+        loadChildren: () => import('./account/account.module').then(m => m.AccountPageModule)
+    },
+    {
+        path: 'account-detail/:account_id',
+        loadChildren: () => import('./account-detail/account-detail.module').then(m => m.AccountDetailPageModule)
+    },
 
 
 ];

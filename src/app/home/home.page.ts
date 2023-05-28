@@ -38,4 +38,10 @@ export class HomePage {
     GoToUploadfile() {
         this.session.LinkTo("uploadfile");
     }
+    GoToTest() {
+        this.session.LinkTo("test");
+    }
+    GoToAccount() {
+        this.session.LinkTo("account");
+    }
 }
